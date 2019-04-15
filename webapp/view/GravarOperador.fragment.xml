@@ -1,0 +1,29 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core">
+   <Dialog
+		id="OperadorPlantioDialog"
+		title="{view>/titulo}"
+		class="sapUiSizeCompact">
+   	
+   		<VBox id="vBoxOperador" class="sapUiSmallMargin">
+   			<Label text="Nome:" labelFor="nome"/>
+			<Input value="{model>/Nome}" id="nome" required="true"/>
+			
+			<Label text="Custo/Hora" labelFor="custohora"/>
+			<Input value="{
+				path: 'model>/CustoHora',
+				type: 'sap.ui.model.odata.type.Single',
+				formatOptions: {
+					decimals: 2,
+					decimalSeparator: ','
+				}
+			}" id="custohora"/>
+		</VBox>
+   		
+   		<buttons>
+   			<Button text="Salvar" press="onSaveDialog" type="Accept"/>
+   			<Button text="Fechar" press="onCloseDialog" type="Reject"/>
+   		</buttons>
+   </Dialog>
+</core:FragmentDefinition>
